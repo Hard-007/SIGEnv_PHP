@@ -1,0 +1,242 @@
+:root{
+    --asidewidth: 10%;
+}
+
+*{
+    margin: 0; padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #02010a;
+}
+img{
+    max-width: 100%;
+}
+button{
+    outline: none;
+    border: none;
+}
+body{
+    max-width: 1440px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(12px, 16px, 20px);
+    color: #02010a;
+}
+
+header{
+    padding: .2em 1em;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0084ff;
+}
+
+header nav ul{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: .3em .7em;
+    border-radius: .5em;
+}
+header nav ul li{
+    margin: 5px 7px;
+    font-size: 14.3px;
+}
+header nav ul li a{
+    color: #000;
+    font-weight: bold;
+}
+header nav ul li img{
+    width: 19px;
+    height: 19px;
+    margin: 2px 3px 0;
+}
+
+header nav ul li, header nav ul li a{
+    display: flex;
+    align-items: center;
+}
+
+.lg{
+    display: grid;
+    grid-template-areas: "figure form";
+    grid-template-columns: 50% 50%;
+    height: 90vh;
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.lg form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lg form figure{
+    max-width: 250px;
+}
+.lg form input, .lg form select, .lg form textarea{
+    display: block;
+    width: 350px;
+    margin: .3em;
+    padding: .6em 1em;
+    font-size: 15px;
+}
+.lg form fieldset{
+    border: none;
+    outline: none;
+}
+.lg form #datas{
+    display: flex;
+    justify-content: space-around;
+    width: 350px;
+}
+.lg form #datas input{
+    width: 140px;
+    margin: .4em;
+    padding: .3em .6em;
+}
+
+.lg form button{
+    padding: .6em .9em;
+}
+
+.main{
+    display: grid;
+    grid-template-areas: "aside section";
+    grid-template-columns: 18% 82%;
+    height: 88vh;
+    overflow: hidden;
+}
+aside{
+    margin: .6em 0;
+    padding: .2em 0;
+    border-radius: .8em;
+}
+aside ul {
+    padding: 4px;
+}
+aside ul li{
+    margin: 4px 2px;
+    padding: .4em .2em;
+}
+aside ul li:hover{
+    background-color: #90acc7f1;
+    border-radius: .8em;
+}
+aside ul li a{
+    display: flex;
+    align-items: center;
+}
+aside ul li img{
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
+}
+
+
+.show{
+    position: relative;
+    background-color: #d8dce0;
+    margin: .6em .4em;
+    padding: .8em;
+    border-radius: .8em;
+    overflow-y: scroll;
+}
+
+.sectionHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: .4em 0 2em;
+}
+.sectionHeader h2{
+    font-size: clamp(20px, 28px, 35px);
+}
+
+.sectionHeader a, .sectionHeader button {
+    background-color: #008cff;
+    color: #ffffff;
+    font-weight: bolder;
+    padding: .6em 1.2em;
+    border-radius: .4em;
+}
+
+table{
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: .6em;
+}
+th, td {
+    text-align: left;
+    padding: 9px;
+}
+td{
+    font-size: 14px;
+}
+.formTable {
+    display: flex;
+    justify-content: space-between;
+}
+.formTable img{
+    width: 18px;
+    height: 18px;
+}
+.formTable form {
+    margin: 0 0 .3em 0;
+    padding: 0 .3em .7em .3em;
+}
+.formTable form select, .formTable form button, .formTable form input {
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    padding: .6em .8em;
+    border-radius: .4em;
+    box-shadow: 0px 0px 3px #777777;
+}
+
+
+.erro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.erro strong{
+    font-size: 30px;
+}
+.erro figure{
+    width: 500px;
+}
+
+.events{
+    display: flex;
+
+}
+.event{
+    margin: 6px;
+    padding: 4px;
+    border-radius: .6em;
+    background-color: #fff;
+    width: 300px;
+}
+
+.event img{
+    border-radius: .4em;
+}
+.event .descript{
+    padding: 6px;
+
+}
+.event .descript b{
+    font-size: 18px;
+}
