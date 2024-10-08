@@ -220,14 +220,14 @@ td{
 
 .events{
     display: flex;
-
+    flex-wrap: wrap;
 }
 .event{
     margin: 6px;
-    padding: 4px;
+    padding: 6px;
     border-radius: .6em;
     background-color: #fff;
-    width: 300px;
+    width: 310px;
 }
 
 .event img{

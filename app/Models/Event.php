@@ -108,7 +108,7 @@
 
         //methods
         public function dash(){
-            $stmt = $this->conn->prepare("SELECT (SELECT COUNT(*) FROM evento) as evento, (SELECT COUNT(*) FROM evento_inscrito WHERE id_user=?) as inscritos ");
+            $stmt = $this->conn->prepare("SELECT (SELECT COUNT(*) FROM evento) as evento, (SELECT COUNT(*) FROM evento_inscricao WHERE id_user=?) as inscritos ");
             $stmt->bind_param("i", $_SESSION['id']);
             $stmt->execute();
             $result = $stmt->get_result();

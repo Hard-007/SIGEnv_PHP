@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registar</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/sigenv/public/css/style.css">
     <style>
         body{
-            background: url('public/img/event.png');
+            background: url('/sigenv/public/img/event.png');
             background-size: cover;
         }
         header{
@@ -77,7 +77,7 @@
     <div class="logForm">
         <form action="/sigenv/registar" method="POST">
             <figure>
-                <img src="public/img/upm.png" alt="UPM Logo">
+                <img src="/sigenv/public/img/upm.png" alt="UPM Logo">
             </figure>
             
             <input type="text" name="name" id="" placeholder="Nome">

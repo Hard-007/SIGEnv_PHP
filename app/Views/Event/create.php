@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evento - Criar</title>
-    <link rel="stylesheet" href="public/css/style.css">
-    <script src="public/js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="/sigenv/public/css/style.css">
+    <script src="/sigenv/public/js/jquery-3.7.1.min.js"></script>
 
     <style>
         .legends button{
@@ -93,7 +93,7 @@
                          
                         <div class="flex">
                             <div>
-                                <label for="banner" ><img src="public/img/icon/image.svg" alt="" id="previewBanner" class="preview"></label>
+                                <label for="banner" ><img src="/sigenv/public/img/icon/image.svg" alt="" id="previewBanner" class="preview"></label>
                                 <input type="file" name="banner" id="banner" accept="image/*" hidden>
                             </div>
                             <div class="right">

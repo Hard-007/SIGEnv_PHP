@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscritos</title>
-    <link rel="stylesheet" href="/app/public/css/style.css">
+    <link rel="stylesheet" href="/sigenv/public/css/style.css">
+    <script src="/sigenv/public/js/jquery-3.7.1.min.js"></script>
+    
     <style>
         .actions{
             width: 50px;
@@ -30,6 +32,7 @@
             background-color: #fff;
             border-radius: .4em;
             padding-top: .6em;
+            display: none;
         }
         .navButtons{
             display: flex;
@@ -51,14 +54,13 @@
     
         <section class="show">
             <div class="navButtons">
-                <a href="/sigenv/detalhes/id/<?=$id?>">Inscritos</a>
-                <a href="/sigenv/submissions/id/<?=$id?>">Submissões</a>
-                <a href="/sigenv/statistics/id/<?=$id?>">Estatísticas</a>
+                <a href="#inscritos">Inscritos</a>
+                <a href="#submissoes">Submissões</a>
+                <a href="#estatisticas">Estatísticas</a>
             </div>
             <div class="details-event">
                 <?php
                     while($row = $evento->fetch_assoc()){
-                        $id = $row['id'];
                         echo"
                         <div>
                             <img src='data:$row[bannerType];base64,".base64_encode($row['banner'])."' />
@@ -68,7 +70,7 @@
                             <strong>$row[tema]</strong>
                             <p>$row[inicio]</p>
                             <br>
-                            <span>Inscritos: <b>$i</b></span> <span>Check Ins: <b>$i</b></span>
+                            <span>Inscritos: <b>10</b></span> <span>Check Ins: <b>4</b></span>
                         </div>
                         ";
                     }
@@ -77,7 +79,7 @@
                 
             </div>
             
-            <div class="details-details ">
+            <div class="details-details" id="inscritos">
                 <div class="formTable">
                     <form action="">
                         <input type="text" name="" id="" placeholder="Pesquisar">
@@ -93,7 +95,6 @@
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Apelido </th>
                             <th>Email</th>
                             <th>Participação</th>
                             <th>Data Inscricao</th>
@@ -108,15 +109,14 @@
                                 echo"
                                     <tr>
                                         <td>".$i++."</td>
-                                        <td>$row[name]</td>
-                                        <td>$row[surname]</td>
+                                        <td>$row[nomecom]</td>
                                         <td>$row[email]</td>
-                                        <td>Activa</td>
-                                        <td>2024-09-12 15:45</td>
-                                        <td>Checked</td>
+                                        <td>Passiva</td>
+                                        <td>$row[created_at]</td>
+                                        <td>$row[status]</td>
                                         <td>
-                                            <a href='/sigenv/evento/id/$row[id]'> <img src='public/img/icon/check.svg' alt='icon'> </a>
-                                            <a href='/sigenv/evento/id/$row[id]'> <img src='public/img/icon/close.svg' alt='icon'> </a>
+                                            <a href='/sigenv/check/$row[id]/$row[id_evento]'> <img src='/sigenv/public/img/icon/check.svg' alt='icon'> </a>
+                                            <a href='/sigenv/uncheck/$row[id]/$row[id_evento]'> <img src='/sigenv/public/img/icon/close.svg' alt='icon'> </a>
                                         </td>
                                     </tr>
                                 ";
@@ -126,7 +126,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="details-details">
+            <div class="details-details" id="submissoes">
                 <div class="formTable">
                     <form action="">
                         <input type="text" name="" id="" placeholder="Pesquisar">
@@ -162,7 +162,7 @@
                                         <td>$row[nomecom]</td>
                                         <td>$row[created_at]</td>
                                         <td>
-                                            <a href='/sigenv/submissoes/id/$row[id]/idE/$row[id_evento]'> Avaliar </a>
+                                            <a href='/sigenv/submissoes/$row[id]/$row[id_evento]'> Avaliar </a>
                                         </td>
                                     </tr>
                                 ";
@@ -177,6 +177,26 @@
             }     
         ?>
     </main>
+
+    <script>
+        $(document).ready(function(){
+            function showHash(){
+                $("#inscritos, #submissoes").hide();
+
+                var hash = window.location.hash;
+
+                if(hash === "#inscritos"){
+                    $("#inscritos").show();
+                }
+                else if(hash === "#submissoes"){
+                    $("#submissoes").show();
+                }
+            }
+
+            showHash();
+            $(window).on("hashchange", showHash);
+        });
+    </script>
 
 </body>
 </html>

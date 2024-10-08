@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evento Ver</title>
-    <link rel="stylesheet" href="public/css/style.css">
-    <script src="public/js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="/sigenv/public/css/style.css">
+    <script src="/sigenv/public/js/jquery-3.7.1.min.js"></script>
     
     <style>
         main{
@@ -154,10 +154,10 @@
                     </div>
                     <div class="participacoes">
                         <div class="pPassivo">
-                            <a href='/sigenv/inscricoes/create/id/<?=$row['id']?>'> Inscrever </a>
+                            <a href='/sigenv/inscricoes/create/<?=$row['id']?>'> Inscrever </a>
                         </div>
                         <div class="pActivo">
-                            <form action="/sigenv/submissoes/create/id/<?=$row['id']?>" method="POST" enctype="multipart/form-data">
+                            <form action="/sigenv/submissoes/create/<?=$row['id']?>" method="POST" enctype="multipart/form-data">
                                 <div class="tipoPart">
                                     <input type="radio" name="tipoPart" id="exposicao" value="exposicao">
                                     <label for="exposicao">Exposicao</label>

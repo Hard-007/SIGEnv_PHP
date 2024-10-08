@@ -20,7 +20,7 @@
                     $result = $this->submit->createSubscription();
 
                     if($result){
-                        header("Location: /sigenv/evento/id/$id");
+                        header("Location: /sigenv/evento/$id");
                     }
                     else{
                         echo "something went wrong";
@@ -72,7 +72,7 @@
                         $result = $this->submit->createSubmission();
 
                         if($result){
-                            header("Location: /sigenv/evento/id/$id");
+                            header("Location: /sigenv/evento/$id");
                         }
                         else{
                             echo "something went wrong";
@@ -101,10 +101,11 @@
                 $this->submit->setId($id);
                 $this->submit->setId_evento($idE);
 
+                $evento = $this->submit->findById();
                 $showSubm = $this->submit->listSubmission();
 
                 if($showSubm){
-                    return "app/Views/Submission/showSubmission.php";
+                    require "app/Views/Submission/show.php";
                 }
             }
         }
@@ -119,6 +120,63 @@
 
                 if($evento && $listSubm && $listSub){
                     require "app/Views/Event/details.php";
+                }
+
+            }
+        }
+
+        public function accept($id, $idE){
+            //
+            if($_SERVER['REQUEST_METHOD'] == "GET"){
+                $this->submit->setId($id);
+                $this->submit->setId_evento($idE);
+
+                $result = $this->submit->acceptSubmission();
+
+                if($result){
+                    header("Location: /sigenv/submissoes/$id/$idE");
+                }
+
+            }
+        }
+        public function reject($id, $idE){
+            //
+            if($_SERVER['REQUEST_METHOD'] == "GET"){
+                $this->submit->setId($id);
+                $this->submit->setId_evento($idE);
+
+                $result = $this->submit->rejectSubmission();
+
+                if($result){
+                    header("Location: /sigenv/submissoes/$id/$idE");
+                }
+
+            }
+        }
+        public function check($id, $idE){
+            //
+            if($_SERVER['REQUEST_METHOD'] == "GET"){
+                $this->submit->setId($id);
+                $this->submit->setId_evento($idE);
+
+                $result = $this->submit->checkSubscription();
+
+                if($result){
+                    header("Location: /sigenv/evento/details/$idE#inscritos");
+                }
+
+            }
+        }
+        public function uncheck($id, $idE){
+            //
+            if($_SERVER['REQUEST_METHOD'] == "GET"){
+                $this->submit->setId($id);
+                $this->submit->setId_evento($idE);
+
+                $result = $this->submit->uncheckSubscription();
+
+                if($result){
+                    header("Location: /sigenv/evento/details/$idE#inscritos");
                 }
 
             }

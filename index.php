@@ -16,7 +16,6 @@
     use app\Controllers\SubmissionController;
     use app\Controllers\SpeakerController;
     use app\Controllers\PartnerController;
-use app\Models\Submission;
 
     //$router = new Router();
 
@@ -64,7 +63,7 @@ use app\Models\Submission;
 
 
     //inscrever participantes passivos
-    Router::get('/sigenv/inscricoes/create/id/{id}', function($id) {
+    Router::get('/sigenv/inscricoes/create/{id}', function($id) {
         AuthMidlleware::login();
         (new SubmissionController())->createSubscription($id);
     });
@@ -78,7 +77,7 @@ use app\Models\Submission;
     });
     
     //inscrever participantes ativos
-    Router::post('/sigenv/submissoes/create/id/{id}', function($id) {
+    Router::post('/sigenv/submissoes/create/{id}', function($id) {
         AuthMidlleware::login();
         (new SubmissionController())->createSubmission($id);
     });
@@ -86,13 +85,30 @@ use app\Models\Submission;
         AuthMidlleware::login();
         (new SubmissionController())->listSubmission($id);
     });
-    Router::get('/sigenv/submissoes/id/{id}/idE/{idE}', function($id, $idE) {
+    Router::get('/sigenv/submissoes/{id}/{idE}', function($id, $idE) {
         AuthMidlleware::login();
         (new SubmissionController())->showSubmission($id, $idE);
     });
     Router::get('/sigenv/statistics/id/{id}', function($id) {
         AuthMidlleware::login();
         (new SubmissionController())->statistics($id);
+    });
+
+    Router::get('/sigenv/check/{id}/{idE}', function($id, $idE) {
+        AuthMidlleware::login();
+        (new SubmissionController())->check($id, $idE);
+    });
+    Router::get('/sigenv/uncheck/{id}/{idE}', function($id, $idE) {
+        AuthMidlleware::login();
+        (new SubmissionController())->uncheck($id, $idE);
+    });
+    Router::get('/sigenv/accept/{id}/{idE}', function($id, $idE) {
+        AuthMidlleware::login();
+        (new SubmissionController())->accept($id, $idE);
+    });
+    Router::get('/sigenv/reject/{id}/{idE}', function($id, $idE) {
+        AuthMidlleware::login();
+        (new SubmissionController())->reject($id, $idE);
     });
 
     //Evento

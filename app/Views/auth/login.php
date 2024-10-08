@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrar</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/sigenv/public/css/style.css">
     <style>
         body{
-            background: url('public/img/event.png');
+            background: url('/sigenv/public/img/event.png');
             background-size: cover;
         }
         header{

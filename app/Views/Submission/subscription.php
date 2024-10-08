@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas Inscrições</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/sigenv/public/css/style.css">
     <style>
         .actions{
             width: 40px;
@@ -69,7 +69,7 @@
                                         <td>$dd</td>
                                         <td>$row[inicio]</td>
                                         <td>
-                                            <a href='/sigenv/evento/id/$row[id]'> <img src='../../../public/img/icon/show.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/$row[id]'> <img src='/sigenv/public/img/icon/show.svg' alt='icon'> </a>
                                         </td>
                                     </tr>
                                 ";
@@ -86,10 +86,10 @@
         ?>
         <section class="show">
             <div class="events">
-                <?php while($row = $events->fetch_assoc()) { ?>
+                <?php while($row = $mySub->fetch_assoc()) { ?>
                     <div class="event">
                         <figure>
-                            <img src="public/img/event.png" alt="Imagem do evento">
+                            <img src="/sigenv/public/img/event.png" alt="Imagem do evento">
                         </figure>
                         <div class="descript">
                             <b><?= htmlspecialchars($row['tema'], ENT_QUOTES, 'UTF-8');?></b>

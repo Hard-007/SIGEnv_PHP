@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscritos</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/sigenv/public/css/style.css">
     <style>
         .actions{
             width: 50px;
@@ -50,7 +50,6 @@
         ?>
     
         <section class="show">
-            fmfkfkrmkm
             <div class="details-event">
                 <?php
                     $i=1;
@@ -101,8 +100,8 @@
                                         <td>$row[nomecom]</td>
                                         <td>$row[created_at]</td>
                                         <td>
-                                            <a href='/sigenv/accept/idE/$row[id_evento]/id/$row[id]'> <img src='/public/img/icon/check.svg' alt='icon'> </a>
-                                            <a href='/sigenv/reject/idE/$row[id_evento]/id/$row[id]'> <img src='/public/img/icon/close.svg' alt='icon'> </a>
+                                            <a href='/sigenv/accept/$row[id]/$row[id_evento]'> <img src='/sigenv/public/img/icon/check.svg' alt='icon'> </a>
+                                            <a href='/sigenv/reject/$row[id]/$row[id_evento]'> <img src='/sigenv/public/img/icon/close.svg' alt='icon'> </a>
                                         </td>
                                     </tr>
                                     

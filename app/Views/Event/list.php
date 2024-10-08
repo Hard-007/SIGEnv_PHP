@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evento</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/sigenv/public/css/style.css">
     <style>
         .actions{
             width: 80px;
@@ -70,10 +70,10 @@
                                         <td>$dd</td>
                                         <td>$row[inicio]</td>
                                         <td>
-                                            <a href='/sigenv/evento/$row[id]'> <img src='public/img/icon/show.svg' alt='icon'> </a>
-                                            <a href='/sigenv/evento/details/$row[id]'> <img src='public/img/icon/align.svg' alt='icon'> </a>
-                                            <a href='/sigenv/evento/edit/$row[id]'> <img src='public/img/icon/edit.svg' alt='icon'> </a>
-                                            <a href='/sigenv/evento/delete/$row[id]'> <img src='public/img/icon/delete.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/$row[id]'> <img src='/sigenv/public/img/icon/show.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/details/$row[id]'> <img src='/sigenv/public/img/icon/align.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/edit/$row[id]'> <img src='/sigenv/public/img/icon/edit.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/delete/$row[id]'> <img src='/sigenv/public/img/icon/delete.svg' alt='icon'> </a>
                                         </td>
                                     </tr>
                                 ";
@@ -93,7 +93,7 @@
                 <?php while($row = $events->fetch_assoc()) { ?>
                     <div class="event">
                         <figure>
-                            <img src="public/img/event.png" alt="Imagem do evento">
+                            <img src="/sigenv/public/img/event.png" alt="Imagem do evento">
                         </figure>
                         <div class="descript">
                             <b><?= htmlspecialchars($row['tema'], ENT_QUOTES, 'UTF-8');?></b>
@@ -106,7 +106,7 @@
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             <span>
-                                <a href="/sigenv/evento/id/<?= urlencode($row['id']); ?>" style="padding: 4px 8px; background-color: #0063ff; border-radius: .4em; color: white; text-decoration: none;">
+                                <a href="/sigenv/evento/<?= urlencode($row['id']); ?>" style="padding: 4px 8px; background-color: #0063ff; border-radius: .4em; color: white; text-decoration: none;">
                                     Ver
                                 </a>
                             </span>

@@ -84,9 +84,25 @@
         //Inscricoes
         public function checkSubscription(){
             //
+            $stmt = $this->conn->prepare("UPDATE evento_inscricao SET status = 'Checked' WHERE id = ? && id_evento = ?");
+            $stmt->bind_param(
+                "ii",
+                $this->id,
+                $this->id_evento
+            );
+
+            return $stmt->execute();
         }
         public function uncheckSubscription(){
             //
+            $stmt = $this->conn->prepare("UPDATE evento_inscricao SET status = 'Unchecked' WHERE id = ? && id_evento = ?");
+            $stmt->bind_param(
+                "ii",
+                $this->id,
+                $this->id_evento
+            );
+
+            return $stmt->execute();
         }
         public function checkSub(){
             //
@@ -121,7 +137,8 @@
         }
         public function listSubscription(){
             //
-            $stmt = $this->conn->prepare("SELECT * FROM user WHERE id = (SELECT id_user FROM evento_inscricao WHERE id_evento = ?)");            $stmt->bind_param("i", $this->id_evento);
+            $stmt = $this->conn->prepare("SELECT subp.id, subp.id_evento, subp.status, subp.created_at, CONCAT(u.name, ' ', u.surname) as nomecom, u.email FROM evento_inscricao AS subp JOIN user AS u ON subp.id_user = u.id WHERE subP.id_evento = ?");
+            $stmt->bind_param("i", $this->id_evento);
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -129,16 +146,32 @@
         }
 
         //Submissoes
-        public function checkSubmission(){
+        public function acceptSubmission(){
             //
+            $stmt = $this->conn->prepare("UPDATE evento_submissao SET status = 'Aceite' WHERE id = ? && id_evento = ?");
+            $stmt->bind_param(
+                "ii",
+                $this->id,
+                $this->id_evento
+            );
+
+            return $stmt->execute();
         }
-        public function uncheckSubmission(){
+        public function rejectSubmission(){
             //
+            $stmt = $this->conn->prepare("UPDATE evento_submissao SET status = 'Rejeitado' WHERE id = ? && id_evento = ?");
+            $stmt->bind_param(
+                "ii",
+                $this->id,
+                $this->id_evento
+            );
+
+            return $stmt->execute();
         }
         public function checkSubDocs(){
             //
             $stmt = $this->conn->prepare("SELECT * FROM evento_submissao WHERE id_evento = ? && id_user = ? && tipo = ?");
-            $stmt->bind_param("iis", $this->id_evento, $this->id_user, $tipo);
+            $stmt->bind_param("iis", $this->id_evento, $this->id_user, $this->tipo);
             $stmt->execute();
             $result = $stmt->get_result();
             
@@ -151,12 +184,12 @@
             );
             $stmt->bind_param(
                 "iissss",
-                $id_evento,
-                $id_user,
-                $tipo,
-                $tema,
-                $docType,
-                $docData
+                $this->id_evento,
+                $this->id_user,
+                $this->tipo,
+                $this->tema,
+                $this->docType,
+                $this->docData
             );
             
             return $stmt->execute();
@@ -164,7 +197,7 @@
         public function showSubmission(){
             //
             $stmt = $this->conn->prepare("SELECT sub.id, sub.id_evento, sub.tema, sub.tipo, sub.docType, sub.docData, sub.status, sub.created_at, CONCAT(u.name, ' ', u.surname) as nomecom FROM evento_submissao AS sub JOIN user AS u ON sub.id_user = u.id WHERE sub.id_evento = ? && sub.id = ?");
-            $stmt->bind_param("ii", $this->id_evento, $id);
+            $stmt->bind_param("ii", $this->id_evento, $this->id);
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -172,7 +205,7 @@
         }
         public function listSubmission(){
             //
-            $stmt = $this->conn->prepare("SELECT sub.id, sub.id_evento, sub.tema, sub.tipo, sub.status, sub.created_at, CONCAT(u.name, ' ', u.surname) as nomecom FROM evento_submissao AS sub JOIN user AS u ON sub.id_user = u.id WHERE sub.id_evento = ?");
+            $stmt = $this->conn->prepare("SELECT sub.id, sub.id_evento, sub.tipo, sub.tema, sub.docType, sub.docData, sub.status, sub.created_at, CONCAT(u.name, ' ', u.surname) as nomecom FROM evento_submissao AS sub JOIN user AS u ON sub.id_user = u.id WHERE sub.id_evento = ?");
             $stmt->bind_param("i", $this->id_evento);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -183,7 +216,7 @@
         //to find events by id to details page
         public function findById(){
             $stmt = $this->conn->prepare("SELECT * FROM evento WHERE id = ? ");
-            $stmt->bind_param("i", $id_evento);
+            $stmt->bind_param("i", $this->id_evento);
             $stmt->execute();
             $result = $stmt->get_result();
 
