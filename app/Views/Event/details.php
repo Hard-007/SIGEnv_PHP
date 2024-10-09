@@ -70,7 +70,7 @@
                             <strong>$row[tema]</strong>
                             <p>$row[inicio]</p>
                             <br>
-                            <span>Inscritos: <b>10</b></span> <span>Check Ins: <b>4</b></span>
+                            <span>Inscritos: <b>2</b></span> <span>Check Ins: <b>1</b></span>
                         </div>
                         ";
                     }
@@ -115,8 +115,8 @@
                                         <td>$row[created_at]</td>
                                         <td>$row[status]</td>
                                         <td>
-                                            <a href='/sigenv/check/$row[id]/$row[id_evento]'> <img src='/sigenv/public/img/icon/check.svg' alt='icon'> </a>
-                                            <a href='/sigenv/uncheck/$row[id]/$row[id_evento]'> <img src='/sigenv/public/img/icon/close.svg' alt='icon'> </a>
+                                            <a href='/sigenv/check/$row[id]/$row[id_evento]'> <img src='/sigenv/public/icon/check.svg' alt='icon'> </a>
+                                            <a href='/sigenv/uncheck/$row[id]/$row[id_evento]'> <img src='/sigenv/public/icon/close.svg' alt='icon'> </a>
                                         </td>
                                     </tr>
                                 ";

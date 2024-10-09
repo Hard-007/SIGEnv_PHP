@@ -70,10 +70,10 @@
                                         <td>$dd</td>
                                         <td>$row[inicio]</td>
                                         <td>
-                                            <a href='/sigenv/evento/$row[id]'> <img src='/sigenv/public/img/icon/show.svg' alt='icon'> </a>
-                                            <a href='/sigenv/evento/details/$row[id]'> <img src='/sigenv/public/img/icon/align.svg' alt='icon'> </a>
-                                            <a href='/sigenv/evento/edit/$row[id]'> <img src='/sigenv/public/img/icon/edit.svg' alt='icon'> </a>
-                                            <a href='/sigenv/evento/delete/$row[id]'> <img src='/sigenv/public/img/icon/delete.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/$row[id]'> <img src='/sigenv/public/icon/show.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/details/$row[id]'> <img src='/sigenv/public/icon/align.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/edit/$row[id]'> <img src='/sigenv/public/icon/edit.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/delete/$row[id]'> <img src='/sigenv/public/icon/delete.svg' alt='icon'> </a>
                                         </td>
                                     </tr>
                                 ";

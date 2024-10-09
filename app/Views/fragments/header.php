@@ -17,7 +17,7 @@ if(!isset($_SESSION['category'])){
     ";
 }
 else{
-    $home = ($_SESSION['category'] == "superadmin") ? "<li><a href='/sigenv/home'><img src='/sigenv/public/img/icon/home.svg' alt=''><b>Home</b></a></li>" : "<li><a href='/sigenv/evento'><img src='/sigenv/public/img/icon/home.svg' alt=''><b>Home</b></a></li>";
+    $home = ($_SESSION['category'] == "superadmin") ? "<li><a href='/sigenv/home'><img src='/sigenv/public/icon/home.svg' alt=''><b>Home</b></a></li>" : "<li><a href='/sigenv/evento'><img src='/sigenv/public/icon/home.svg' alt=''><b>Home</b></a></li>";
     echo "
         <header>
     <h1>SIGEnvSci</h1>
@@ -25,16 +25,16 @@ else{
         <ul>
             ".$home."
             <li>
-                <img src='/sigenv/public/img/icon/notification.svg' alt=''>
+                <img src='/sigenv/public/icon/notification.svg' alt=''>
                 <b> Notificações </b>
             </li>
             <li>
-                <img src='/sigenv/public/img/icon/user.svg' alt=''>
+                <img src='/sigenv/public/icon/user.svg' alt=''>
                 <b>".$_SESSION['nome'].'. '.$_SESSION['apelido']."</b>
             </li>
             <li>
                 <a href='/sigenv/exit'>
-                    <img src='/sigenv/public/img/icon/logout.svg' alt=''>
+                    <img src='/sigenv/public/icon/logout.svg' alt=''>
                     <b> Sair </b>
                 </a>
             </li>

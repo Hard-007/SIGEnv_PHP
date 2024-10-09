@@ -1,23 +1,34 @@
 <?php
-    namespace app\Controllers;
+namespace app\Controllers;
 
-    use app\Models\Event;
+use app\Models\Event;
+use app\Models\Submission;
+use app\Models\Subscription;
 
     Class EventController{
         public $event;
+        public $Sub;
+        public $Subm;
 
         public function __construct(){
             $this->event = new Event();
+            $this->Sub = new Subscription();
+            $this->Subm = new Submission();
         }
-
-        public function dash(){
-            //
+        
+        public function showDetails($id){
             if($_SERVER['REQUEST_METHOD'] == "GET"){
-                $event = new Event();
+                $this->Sub->setId_evento($id);
+                $this->Subm->setId_evento($id);
 
-                $events = $event->dash();
+                $evento = $this->event->findById($id);
+                $listSub = $this->Sub->listSubscription();
+                $listSubm = $this->Subm->listSubmission();
 
-                require "app/Views/index.php";
+                if($evento && $listSub && $listSubm){
+                    require "app/Views/Event/details.php";
+                }
+
             }
         }
         public function createEvent(){

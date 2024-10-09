@@ -58,6 +58,14 @@
         }
 
         //methods
+        public function count(){
+            $stmt = $this->conn->prepare("SELECT id FROM user ");
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->num_rows;
+        }
+
         public function create($user){
             //
             $user_name = $user->get_uName();

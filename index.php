@@ -7,15 +7,17 @@
         $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
         require_once __DIR__ . '/' . $class . '.php';
     });
-    
-    use app\core\Router;
 
+    use app\core\Router;
+    
     use app\Middlewares\AuthMidlleware;
     use app\Controllers\UserController;
     use app\Controllers\EventController;
     use app\Controllers\SubmissionController;
+    use app\Controllers\SubscriptionController;
     use app\Controllers\SpeakerController;
     use app\Controllers\PartnerController;
+    use app\Controllers\DashboardController;
 
     //$router = new Router();
 
@@ -27,7 +29,7 @@
     });
     Router::get('/sigenv/home', function() {
         AuthMidlleware::handle();
-        (new EventController())->dash();
+        (new DashboardController())->dash();
         //include "app/Views/index.php";
     });
     Router::get('/sigenv/exit', function() {
@@ -65,15 +67,15 @@
     //inscrever participantes passivos
     Router::get('/sigenv/inscricoes/create/{id}', function($id) {
         AuthMidlleware::login();
-        (new SubmissionController())->createSubscription($id);
+        (new SubscriptionController())->createSubscription($id);
     });
     Router::get('/sigenv/inscricoes/list', function() {
         AuthMidlleware::login();
-        (new SubmissionController())->listSubscription();
+        (new SubscriptionController())->listSubscription();
     });
     Router::get('/sigenv/inscricoes', function() {
         AuthMidlleware::login();
-        (new SubmissionController())->mySubscription();
+        (new SubscriptionController())->mySubscription();
     });
     
     //inscrever participantes ativos
@@ -81,7 +83,7 @@
         AuthMidlleware::login();
         (new SubmissionController())->createSubmission($id);
     });
-    Router::get('/sigenv/submissoes/list/id/{id}', function($id) {
+    Router::get('/sigenv/submissoes/list/{id}', function($id) {
         AuthMidlleware::login();
         (new SubmissionController())->listSubmission($id);
     });
@@ -96,11 +98,11 @@
 
     Router::get('/sigenv/check/{id}/{idE}', function($id, $idE) {
         AuthMidlleware::login();
-        (new SubmissionController())->check($id, $idE);
+        (new SubscriptionController())->check($id, $idE);
     });
     Router::get('/sigenv/uncheck/{id}/{idE}', function($id, $idE) {
         AuthMidlleware::login();
-        (new SubmissionController())->uncheck($id, $idE);
+        (new SubscriptionController())->uncheck($id, $idE);
     });
     Router::get('/sigenv/accept/{id}/{idE}', function($id, $idE) {
         AuthMidlleware::login();
@@ -110,6 +112,7 @@
         AuthMidlleware::login();
         (new SubmissionController())->reject($id, $idE);
     });
+    
 
     //Evento
     Router::get('/sigenv/evento', function() {
@@ -130,7 +133,7 @@
     });
     Router::get('/sigenv/evento/details/{id}', function($id) {
         AuthMidlleware::login();
-        (new SubmissionController())->showDetails($id);
+        (new EventController())->showDetails($id);
     });
 
     Router::post('/sigenv/evento/create', function() {

@@ -89,7 +89,7 @@
 
                         <div class="flex">
                             <div>
-                                <label for="oimg"><img src="/sigenv/public/img/icon/image.svg" alt="" id="previewParceiro" class="preview"></label>
+                                <label for="oimg"><img src="/sigenv/public/icon/image.svg" alt="" id="previewParceiro" class="preview"></label>
                                 <input type="file" name="parceiro-img" id="" accept="image/*" hidden>
                             </div>
                             <div class="right">

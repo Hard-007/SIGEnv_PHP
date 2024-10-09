@@ -107,13 +107,12 @@
         }
 
         //methods
-        public function dash(){
-            $stmt = $this->conn->prepare("SELECT (SELECT COUNT(*) FROM evento) as evento, (SELECT COUNT(*) FROM evento_inscricao WHERE id_user=?) as inscritos ");
-            $stmt->bind_param("i", $_SESSION['id']);
+        public function count(){
+            $stmt = $this->conn->prepare("SELECT id FROM evento ");
             $stmt->execute();
             $result = $stmt->get_result();
 
-            return $result;
+            return $result->num_rows;
         }
         public function create(){
             // 

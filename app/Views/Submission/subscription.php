@@ -69,7 +69,7 @@
                                         <td>$dd</td>
                                         <td>$row[inicio]</td>
                                         <td>
-                                            <a href='/sigenv/evento/$row[id]'> <img src='/sigenv/public/img/icon/show.svg' alt='icon'> </a>
+                                            <a href='/sigenv/evento/$row[id]'> <img src='/sigenv/public/icon/show.svg' alt='icon'> </a>
                                         </td>
                                     </tr>
                                 ";

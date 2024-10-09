@@ -10,7 +10,7 @@
     <style>
         .cards, .row{
             display: flex;
-
+            flex-wrap: wrap;
         }
         .card{
             background-color: #fff;
@@ -19,7 +19,7 @@
             border-radius: .6em;
         }
         .card img{
-            max-width: 100px;
+            max-width: 80px;
         }
 
         /* body {
@@ -52,7 +52,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Participantes por Categoria</h4>
                             <div class="chart-container">
-                                <canvas id="participantesCategoriaChart"></canvas>
+                                <canvas id="participantesCategoriaChart" style="width: 200px; height: 200px;"></canvas>
                             </div>
                         </div>
                     </div>
@@ -64,45 +64,58 @@
                         <div class="card-body">
                             <h4 class="card-title">Resumos por Status</h4>
                             <div class="chart-container">
-                                <canvas id="trabalhosStatusChart"></canvas>
+                                <canvas id="trabalhosStatusChart" style="width: 200px; height: 200px;"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <?php while($row = $events->fetch_assoc()) { ?>
-                <div class="cards">
-                    <div class="card">
-                        <img src='public/img/icon/calendar.svg' alt='icon'>
-                        <h3>
-                            <?= htmlspecialchars($row['evento'], ENT_QUOTES, 'UTF-8');?>
-                        </h3>
-                        <p>Eventos</p>
-                    </div>
-                    <div class="card">
-                        <img src='public/img/icon/form.svg' alt='icon'>
-                        <h3>
-                            <?= htmlspecialchars($row['inscritos'], ENT_QUOTES, 'UTF-8');?>
-                        </h3>
-                        <p>Inscricoes</p>
-                    </div>
-                    <div class="card">
-                        <img src='public/img/icon/speech.svg' alt='icon'>
-                        <h3>
-                            <?= htmlspecialchars($row['evento'], ENT_QUOTES, 'UTF-8');?>
-                        </h3>
-                        <p>Oradores</p>
-                    </div>
-                    <div class="card">
-                        <img src='public/img/icon/handshake.svg' alt='icon'>
-                        <h3>
-                            <?= htmlspecialchars($row['evento'], ENT_QUOTES, 'UTF-8');?>
-                        </h3>
-                        <p>Parceiros</p>
-                    </div>
+            <div class="cards">
+                <div class="card">
+                    <p>Eventos</p>
+                    <img src='public/icon/calendar.svg' alt='icon'>
+                    <h3>
+                        <?= htmlspecialchars($eventos, ENT_QUOTES, 'UTF-8');?>
+                    </h3>
                 </div>
-            <?php } ?>
+                <div class="card">
+                    <p>Inscricoes</p>
+                    <img src='public/icon/form.svg' alt='icon'>
+                    <h3>
+                        <?= htmlspecialchars($inscritos, ENT_QUOTES, 'UTF-8');?>
+                    </h3>
+                </div>
+                <div class="card">
+                    <p>Resumos</p>
+                    <img src='public/icon/handshake.svg' alt='icon'>
+                    <h3>
+                        <?= htmlspecialchars($resumos, ENT_QUOTES, 'UTF-8');?>
+                    </h3>
+                </div>
+                <div class="card">
+                    <p>Oradores</p>
+                    <img src='public/icon/speech.svg' alt='icon'>
+                    <h3>
+                        <?= htmlspecialchars($oradores, ENT_QUOTES, 'UTF-8');?>
+                    </h3>
+                </div>
+                <div class="card">
+                    <p>Parceiros</p>
+                    <img src='public/icon/handshake.svg' alt='icon'>
+                    <h3>
+                        <?= htmlspecialchars($parceiros, ENT_QUOTES, 'UTF-8');?>
+                    </h3>
+                </div>
+                <div class="card">
+                    <p>Utilizadores</p>
+                    <img src='public/icon/user.svg' alt='icon'>
+                    <h3>
+                        <?= htmlspecialchars($utilizadores, ENT_QUOTES, 'UTF-8');?>
+                    </h3>
+                </div>
+            </div>
+
             <div>
                 <table>
                     <th>

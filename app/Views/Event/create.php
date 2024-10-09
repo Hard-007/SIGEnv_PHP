@@ -93,7 +93,7 @@
                          
                         <div class="flex">
                             <div>
-                                <label for="banner" ><img src="/sigenv/public/img/icon/image.svg" alt="" id="previewBanner" class="preview"></label>
+                                <label for="banner" ><img src="/sigenv/public/icon/image.svg" alt="" id="previewBanner" class="preview"></label>
                                 <input type="file" name="banner" id="banner" accept="image/*" hidden>
                             </div>
                             <div class="right">

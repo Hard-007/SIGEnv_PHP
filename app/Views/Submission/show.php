@@ -100,8 +100,8 @@
                                         <td>$row[nomecom]</td>
                                         <td>$row[created_at]</td>
                                         <td>
-                                            <a href='/sigenv/accept/$row[id]/$row[id_evento]'> <img src='/sigenv/public/img/icon/check.svg' alt='icon'> </a>
-                                            <a href='/sigenv/reject/$row[id]/$row[id_evento]'> <img src='/sigenv/public/img/icon/close.svg' alt='icon'> </a>
+                                            <a href='/sigenv/accept/$row[id]/$row[id_evento]'> <img src='/sigenv/public/icon/check.svg' alt='icon'> </a>
+                                            <a href='/sigenv/reject/$row[id]/$row[id_evento]'> <img src='/sigenv/public/icon/close.svg' alt='icon'> </a>
                                         </td>
                                     </tr>
                                     

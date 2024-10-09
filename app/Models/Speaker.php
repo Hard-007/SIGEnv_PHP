@@ -64,6 +64,13 @@
         }
 
         //methods
+        public function count(){
+            $stmt = $this->conn->prepare("SELECT id FROM orador ");
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->num_rows;
+        }
         public function findAll(){
             //
             $stmt = $this->conn->prepare("SELECT * FROM orador");

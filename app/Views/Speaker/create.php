@@ -90,7 +90,7 @@
 
                         <div class="flex">
                             <div>
-                                <label for="oimg"><img src="/sigenv/public/img/icon/image.svg" alt="" id="previewOrador" class="preview"></label>
+                                <label for="oimg"><img src="/sigenv/public/icon/image.svg" alt="" id="previewOrador" class="preview"></label>
                                 <input type="file" name="orador-img" id="oimg" accept="image/*" hidden>
                             </div>
                             <div class="right">

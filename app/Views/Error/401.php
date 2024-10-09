@@ -9,7 +9,7 @@
 <body>
     <div class="erro">
         <figure>
-            <img src="/sigenv/public/img/icon/401.svg" alt="">
+            <img src="/sigenv/public/icon/401.svg" alt="">
         </figure>
         <div>
             <strong>401</strong>
